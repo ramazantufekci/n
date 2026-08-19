@@ -2,6 +2,7 @@
   "name": "n",
   "private": true,
   "version": "1.0.0",
+  "homepage": "https://ramazantufekci.github.io/n"
   "type": "module",
   "scripts": {
     "dev": "vite",
