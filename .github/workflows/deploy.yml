@@ -1,15 +1,15 @@
-name: Cloudflare Pages Deployment
+name: React Vite Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - main
+      - main # Varsa 'master' olarak değiştirin
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -18,16 +18,17 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 24
-          #cache: 'npm'
+          node-version: 20
+          cache: 'npm'
 
       - name: Install Dependencies
-        run: npm install
-
-      - name: Install Dependencies2
         run: npm ci
-      - name: Dependencies Control
-        run: npm audit fix
 
       - name: Build Project
         run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # Vite varsayılan olarak 'dist' klasörünü üretir
+          branch: gh-pages
