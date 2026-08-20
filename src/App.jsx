@@ -4,6 +4,7 @@ function App(){
   const submit = (e)=>{
     e.preventDefault();
     console.log(polls);
+    setPolls('');
   }
   return(
     <>
