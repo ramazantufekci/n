@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 function App(){
   const [polls, setPolls] = useState('');
   const submit = (e)=>{
-    console.log(e);
+    e.preventDefault();
+    console.log(polls);
   }
   return(
     <>
-      <from>
+      <form onSubmit={submit}>
         <input name="is" value={polls} onChange={(e)=>setPolls(e.target.value)} />
-        <button onClick={submit}>Gönder</button>
-      </from>
+        <button type="submit">Gönder</button>
+      </form>
     </>
   );
 }
