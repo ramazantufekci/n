@@ -7,13 +7,16 @@ function App(){
     setPolls('');
   }
 
-  useEffect(async()=>{
-    const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+  useEffect(()=>{
+    const fetchData = async()=>{
+      const response = await fetch("https://jsonplaceholder.typicode.com/todos");
     if(!response.ok) throw new Error('Veri Alınamadı');
     const data = await response.json();
     data.map((mal,index)=>{
       console.log(mal,'-',index);
     });
+    };
+    fetchData();
   },[]);
   return(
     <>
