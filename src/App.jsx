@@ -13,7 +13,7 @@ function App(){
     if(!response.ok) throw new Error('Veri Alınamadı');
     const data = await response.json();
     data.map((mal,index)=>{
-      console.log(mal,'-',index);
+      console.log(mal.id,'-',index);
     });
     };
     fetchData();
