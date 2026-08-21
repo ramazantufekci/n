@@ -14,7 +14,7 @@ function App(){
     data.map((mal,index)=>{
       console.log(mal,'-',index);
     });
-  });
+  },[polls]);
   return(
     <>
       <form onSubmit={submit}>
